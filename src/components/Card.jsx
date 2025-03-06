@@ -1,8 +1,9 @@
 function Card() {
   return (
-    <>
-      <div>Card Image</div>
-    </>
+    <div className="cardContainer">
+      <div className="cardImage">Card Image</div>
+      <span className="cardDescription">Card Description</span>
+    </div>
   );
 }
 

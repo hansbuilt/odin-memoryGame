@@ -2,3 +2,27 @@
   margin: 0;
   padding: 0;
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightblue;
+  padding: 10px;
+}
+
+.gameContainer {
+  background-color: lightcyan;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: lightgreen;
+  border: 5px solid black;
+  margin: 10px;
+  padding: 5px;
+}
