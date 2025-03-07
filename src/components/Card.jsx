@@ -1,6 +1,6 @@
-function Card({ id, countryName, countryImage }) {
+function Card({ id, countryName, countryImage, clickEvent }) {
   return (
-    <div className="cardContainer">
+    <div className="cardContainer" onClick={clickEvent}>
       <div className="cardImage">
         <img key={id} src={countryImage} alt="Country Flag" width="100" />
       </div>

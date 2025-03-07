@@ -69,6 +69,10 @@ function GameBoard() {
     loadFlags();
   }, []);
 
+  const shuffleFlags = () => {
+    setFlags((prevFlags) => [...prevFlags].sort(() => Math.random() - 0.5));
+  };
+
   return (
     <>
       {flags.map((flag, index) => (
@@ -76,6 +80,7 @@ function GameBoard() {
           key={index}
           countryImage={flag.flagUrl}
           countryName={flag.country}
+          clickEvent={shuffleFlags}
         ></Card>
       ))}
     </>
