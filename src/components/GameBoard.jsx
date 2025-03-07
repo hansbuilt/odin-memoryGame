@@ -45,6 +45,7 @@ async function fetchFlag(country) {
       ? {
           country,
           flagUrl,
+          uniqueID: crypto.randomUUID(),
         }
       : null;
   } catch (error) {
@@ -53,8 +54,9 @@ async function fetchFlag(country) {
   }
 }
 
-function GameBoard() {
+function GameBoard({ handleScoreIncrement, handleScoreReset }) {
   const [flags, setFlags] = useState([]);
+  const [visited, setVisited] = useState([]);
 
   useEffect(() => {
     async function loadFlags() {
@@ -69,8 +71,23 @@ function GameBoard() {
     loadFlags();
   }, []);
 
-  const shuffleFlags = () => {
-    setFlags((prevFlags) => [...prevFlags].sort(() => Math.random() - 0.5));
+  const resetVisited = () => {
+    setVisited([]);
+  };
+
+  // const addVisited = (id) => {
+  //   setVisited((prevVisited) => [...prevVisited].push(id));
+  // };
+
+  const shuffleFlags = (id) => {
+    if (!visited.includes(id)) {
+      setVisited((prevVisited) => [...prevVisited, id]);
+      setFlags((prevFlags) => [...prevFlags].sort(() => Math.random() - 0.5));
+      handleScoreIncrement();
+    } else {
+      handleScoreReset();
+      resetVisited();
+    }
   };
 
   return (
@@ -78,6 +95,7 @@ function GameBoard() {
       {flags.map((flag, index) => (
         <Card
           key={index}
+          id={flag.uniqueID}
           countryImage={flag.flagUrl}
           countryName={flag.country}
           clickEvent={shuffleFlags}
