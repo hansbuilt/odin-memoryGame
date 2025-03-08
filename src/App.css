@@ -3,16 +3,33 @@
   padding: 0;
 }
 
+body {
+  /* height: 100%; */
+  background-color: black;
+  background-image: url("https://cdn8.bigcommerce.com/s-yqkp4d/images/stencil/2048x2048/products/5284/7427/bw_mural__05436.1453158303.jpg?c=2");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  background-color: lightblue;
+  align-items: top;
+  background: linear-gradient(
+    to bottom,
+    grey 30%,
+    rgba(128, 128, 128, 0.5) 80%,
+    transparent 100%
+  );
+  height: 150px;
   padding: 10px;
+  font-weight: bold;
 }
 
 .gameContainer {
-  background-color: lightcyan;
+  /* background-color: lightcyan; */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
@@ -21,8 +38,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: lightgreen;
-  border: 5px solid black;
+  background-color: grey;
+  border: 5px solid darkgrey;
   margin: 10px;
-  padding: 5px;
+  padding: 10px;
+}
+
+.cardDescription {
+  font-size: 1.3em;
+  font-weight: bold;
 }
