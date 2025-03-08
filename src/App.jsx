@@ -26,7 +26,10 @@ function App() {
       <div className="header">
         <div className="headerLeft">
           <h1>Flags Memory Game</h1>
-          <span>Here would go some instructions</span>
+          <span>
+            Test your memory of country flags! Click on flags you haven't
+            clicked on yet to increase your score.
+          </span>
         </div>
         <div className="headerRight">
           <Scoreboard
